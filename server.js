@@ -16,4 +16,16 @@ allRolRoutes(app);
 const allUserRoutes = require('./routes/user.routes');
 allUserRoutes(app);
 
+const allSchoolRoutes = require('./routes/school.routes');
+allSchoolRoutes(app);
+
+const allAcadTrainingRoutes = require('./routes/acadTraining.routes');
+allAcadTrainingRoutes(app);
+
+const allCertificationRoutes = require('./routes/certification.routes');
+allCertificationRoutes(app);
+
+const allWorkExperienceRoutes = require('./routes/workExperience.routes');
+allWorkExperienceRoutes(app);
+
 app.listen(port, () => console.log("Server is listening at port ", port));

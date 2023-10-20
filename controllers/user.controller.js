@@ -2,10 +2,10 @@ const User = require('../models/user.model');
 
 module.exports.createUser = (request, response) =>{
     
-    const {nombre, apellido, rol, fechaNacimiento, telefono, usuario, password} = request.body;
+    const {nombre, apellido, rol, fecha_Nacimiento, telefono, usuario, password} = request.body;
     console.log(request.body)
     User.create({
-        nombre, apellido, rol, fechaNacimiento, telefono, usuario, password
+        nombre, apellido, rol, fecha_Nacimiento, telefono, usuario, password
     })
         .then(User => response.json({insertedUser: User, msg: 'Succesful creation'}))
         .catch(err => response.status(400).json(err));
