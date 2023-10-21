@@ -2,10 +2,10 @@ const AcadTraining = require('../models/acadTraining.model');
 
 module.exports.createAcadTraining = (request, response) =>{
     
-    const {idInstitucion, idUsuario, fecha_inicio, fecha_fin} = request.body;
+    const {idInstitucion, idUsuario, fechaInicio, fechaFin} = request.body;
     console.log(request.body)
     AcadTraining.create({
-        idInstitucion, idUsuario, fecha_inicio, fecha_fin
+        idInstitucion, idUsuario, fechaInicio, fechaFin
     })
         .then(AcadTraining => response.json({insertedAcadTraining: AcadTraining, msg: 'Succesful creation'}))
         .catch(err => response.status(400).json(err));

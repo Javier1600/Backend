@@ -19,21 +19,5 @@ const AcadTrainingSchema = new mongoose.Schema({
     }
 });
 
-AcadTrainingSchema.virtual('fecha_inicio')
-.set(function(fecha) {
-    this.fechaInicio = new Date(fecha);
-})
-.get(function(){
-    return this.fechaInicio.toISOString().substring(0,10);
-});
-
-AcadTrainingSchema.virtual('fecha_fin')
-.set(function(fecha) {
-    this.fechaFin = new Date(fecha);
-})
-.get(function(){
-    return this.fechaFin.toISOString().substring(0,10);
-});
-
 const AcadTraining = mongoose.model('AcadTraining', AcadTrainingSchema);
 module.exports = AcadTraining;
