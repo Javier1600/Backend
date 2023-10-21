@@ -6,4 +6,7 @@ module.exports = function(app){
     app.get('/api/acadTraining/:id',AcadTrainingController.getAcadTraining);
     app.put('/api/acadTraining/:id/',AcadTrainingController.updateAcadTraining);
     app.delete('/api/acadTraining/:id', AcadTrainingController.deleteAcadTraining);
+    app.get('/api/acadTrainings/user/:id', AcadTrainingController.getUserAcadTraining);
+    app.get('/api/acadTrainings/school/:id', AcadTrainingController.getSchoolAcadTraining);
+
 }

@@ -6,4 +6,6 @@ module.exports = function(app){
     app.get('/api/postulation/:id', PostulationController.getPostulation);
     app.put('/api/postulation/:id/', PostulationController.updatePostulation);
     app.delete('/api/postulation/:id',  PostulationController.deletePostulation);
+    app.get('/api/postulations/user/:id',  PostulationController.getUserPostulations);
+    app.get('/api/postulations/job/:id',  PostulationController.getJobPostulations);
 }

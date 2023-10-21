@@ -6,4 +6,5 @@ module.exports = function(app){
     app.get('/api/workExperience/:id',WorkExperience.getWorkExperience);
     app.put('/api/workExperience/:id/',WorkExperience.updateWorkExperience);
     app.delete('/api/workExperience/:id', WorkExperience.deleteWorkExperience);
+    app.get('/api/workExperiences/user/:id', WorkExperience.getUserExperience);
 }

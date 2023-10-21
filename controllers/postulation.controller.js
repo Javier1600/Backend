@@ -33,3 +33,15 @@ module.exports.deletePostulation = (request, response) =>{
     .then(PostulationDeleted => response.json(PostulationDeleted))
     .catch(err => response.json(err))
 }
+
+module.exports.getUserPostulations = (request,response) =>{
+    Postulation.find({idUsuario: request.params.id})
+    .then(retrievedCertifications => response.json(retrievedCertifications))
+    .catch(err => response.json(err))
+}
+
+module.exports.getJobPostulations = (request,response) =>{
+    Postulation.find({idEmpleo: request.params.id})
+    .then(retrievedCertifications => response.json(retrievedCertifications))
+    .catch(err => response.json(err))
+}

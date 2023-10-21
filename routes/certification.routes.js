@@ -6,4 +6,5 @@ module.exports = function(app){
     app.get('/api/certification/:id',CertificationController.getCertification);
     app.put('/api/certification/:id/',CertificationController.updateCertification);
     app.delete('/api/certification/:id', CertificationController.deleteCertification);
+    app.get('/api/certification/user/:id', CertificationController.getUserCertifications);
 }

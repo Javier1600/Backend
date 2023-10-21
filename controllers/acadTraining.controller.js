@@ -34,3 +34,15 @@ module.exports.deleteAcadTraining = (request, response) =>{
     .then(AcadTrainingDeleted => response.json(AcadTrainingDeleted))
     .catch(err => response.json(err))
 }
+
+module.exports.getUserAcadTraining = (request,response) =>{
+    AcadTraining.find({idUsuario: request.params.id})
+    .then(retrievedCertifications => response.json(retrievedCertifications))
+    .catch(err => response.json(err))
+}
+
+module.exports.getSchoolAcadTraining = (request,response) =>{
+    AcadTraining.find({idInstitucion: request.params.id})
+    .then(retrievedCertifications => response.json(retrievedCertifications))
+    .catch(err => response.json(err))
+}

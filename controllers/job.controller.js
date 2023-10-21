@@ -33,3 +33,9 @@ module.exports.deleteJob = (request, response) =>{
     .then(JobDeleted => response.json(JobDeleted))
     .catch(err => response.json(err))
 }
+
+module.exports.getCompanyJobs = (request,response) =>{
+    Job.find({idEmpresa: request.params.id})
+    .then(retrievedCertifications => response.json(retrievedCertifications))
+    .catch(err => response.json(err))
+}

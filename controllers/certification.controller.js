@@ -34,3 +34,9 @@ module.exports.deleteCertification = (request, response) =>{
     .then(CertificationDeleted => response.json(CertificationDeleted))
     .catch(err => response.json(err))
 }
+
+module.exports.getUserCertifications = (request,response) =>{
+    Certification.find({idUsuario: request.params.id})
+    .then(retrievedCertifications => response.json(retrievedCertifications))
+    .catch(err => response.json(err))
+}

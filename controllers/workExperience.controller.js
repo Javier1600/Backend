@@ -34,3 +34,9 @@ module.exports.deleteWorkExperience = (request, response) =>{
     .then(WorkExperienceDeleted => response.json(WorkExperienceDeleted))
     .catch(err => response.json(err))
 }
+
+module.exports.getUserExperience = (request,response) =>{
+    WorkExperience.find({idUsuario: request.params.id})
+    .then(retrievedExperience => response.json(retrievedExperience))
+    .catch(err => response.json(err))
+}
