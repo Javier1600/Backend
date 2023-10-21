@@ -34,7 +34,10 @@ allCompanyRoutes(app);
 const allJobRoutes = require('./routes/job.routes');
 allJobRoutes(app);
 
-const allJPostulationRoutes = require('./routes/postulation.routes');
-allJPostulationRoutes(app);
+const allPostulationRoutes = require('./routes/postulation.routes');
+allPostulationRoutes(app);
+
+const allLogInRoutes = require('./routes/login.routes');
+allLogInRoutes(app);
 
 app.listen(port, () => console.log("Server is listening at port ", port));
