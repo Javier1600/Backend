@@ -2,10 +2,10 @@ const Certification = require('../models/certification.model');
 
 module.exports.createCertification = (request, response) =>{
     
-    const {titulo, url,idUsuario, fecha_Expedicion} = request.body;
+    const {titulo, url,idUsuario, fechaExpedicion} = request.body;
     console.log(request.body)
     Certification.create({
-        titulo, url,idUsuario, fecha_Expedicion
+        titulo, url,idUsuario, fechaExpedicion
     })
         .then(Certification => response.json({insertedCertification: Certification, msg: 'Succesful creation'}))
         .catch(err => response.status(400).json(err));

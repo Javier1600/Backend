@@ -19,13 +19,5 @@ const CertificationSchema = new mongoose.Schema({
     }
 });
 
-CertificationSchema.virtual('fecha_Expedicion')
-.set(function(fecha) {
-    this.fechaExpedicion = new Date(fecha);
-})
-.get(function(){
-    return this.fechaExpedicion.toISOString().substring(0,10);
-});
-
 const Certification = mongoose.model('Certification', CertificationSchema);
 module.exports = Certification;
