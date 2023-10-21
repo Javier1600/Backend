@@ -42,13 +42,5 @@ UserSchema.pre('validate', function(next) {
     next();
     });
 
-UserSchema.virtual('fecha_Nacimiento')
-.set(function(fecha) {
-    this.fechaNacimiento = new Date(fecha);
-})
-.get(function(){
-    return this.fechaNacimiento.toISOString().substring(0,10);
-});
-
 const User = mongoose.model('User', UserSchema);
 module.exports = User;
