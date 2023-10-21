@@ -27,21 +27,5 @@ const WorkExperienceSchema = new mongoose.Schema({
     }
 });
 
-WorkExperienceSchema.virtual('fecha_inicio')
-.set(function(fecha) {
-    this.fechaInicio = new Date(fecha);
-})
-.get(function(){
-    return this.fechaInicio.toISOString().substring(0,10);
-});
-
-WorkExperienceSchema.virtual('fecha_fin')
-.set(function(fecha) {
-    this.fechaFin = new Date(fecha);
-})
-.get(function(){
-    return this.fechaFin.toISOString().substring(0,10);
-});
-
 const WorkExperience = mongoose.model('WorkExperience', WorkExperienceSchema);
 module.exports = WorkExperience;
