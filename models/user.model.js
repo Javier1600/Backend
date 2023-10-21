@@ -28,8 +28,19 @@ const UserSchema = new mongoose.Schema({
         type: String,
         required: [true, 'El password es obligatorio'],
     },
-    
 });
+
+UserSchema.virtual('confirmPassword')
+.get( () => this._confirmPassword )
+.set( value => this._confirmPassword = value );
+
+UserSchema.pre('validate', function(next) {
+    console.log(this.password ,this.confirmPassword)
+    if (this.password != this.confirmPassword) {
+    this.invalidate('confirmPassword', 'Password must match!');
+    }
+    next();
+    });
 
 UserSchema.virtual('fecha_Nacimiento')
 .set(function(fecha) {

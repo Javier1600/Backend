@@ -28,4 +28,7 @@ allCertificationRoutes(app);
 const allWorkExperienceRoutes = require('./routes/workExperience.routes');
 allWorkExperienceRoutes(app);
 
+const allCompanyRoutes = require('./routes/company.routes');
+allCompanyRoutes(app);
+
 app.listen(port, () => console.log("Server is listening at port ", port));
