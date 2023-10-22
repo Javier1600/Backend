@@ -9,6 +9,10 @@ const AcadTrainingSchema = new mongoose.Schema({
         type: String,
         required: [true, 'El idUsuario es obligatorio']
     },
+    tituloObtenido:{
+        type: String,
+        required: [true, 'El tiitulo obtenido es obligatorio']
+    },
     fechaInicio:{
         type: Date,
         required: [true, 'La fecha de Inicio es obligatoria'],
