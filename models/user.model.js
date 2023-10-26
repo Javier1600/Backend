@@ -13,6 +13,10 @@ const UserSchema = new mongoose.Schema({
         type: String,
         required: [true, 'El rol es obligatorio']
     },
+    sexo: {
+        type: String,
+        required: [true, 'El sexo es obligatorio']
+    },
     fechaNacimiento:{
         type: Date,
         required: [true, 'La fechaNacimiento es obligatoria'],
