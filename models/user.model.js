@@ -35,10 +35,10 @@ const UserSchema = new mongoose.Schema({
 });
 
 UserSchema.virtual('confirmPassword')
-.get( () => this._confirmPassword )
-.set( value => this._confirmPassword = value );
+.get( () => this.confirmPassword )
+.set( value => this.confirmPassword = value );
 
-UserSchema.pre('validate', function(next) {
+UserSchema.pre('new', function(next) {
     console.log(this.password ,this.confirmPassword)
     if (this.password != this.confirmPassword) {
     this.invalidate('confirmPassword', 'Password must match!');
