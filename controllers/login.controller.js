@@ -6,7 +6,7 @@ module.exports.validateUser = (req, res) => {
         .then((user) => {
             console.log(req.body);
             if(req.body.password === user.password){
-                res.json({msg: 'Usuario validado correctamente!!'});
+                res.json({loggedUser: user});
             }
             else {
                 res.json({msg: 'Contraseña incorrecta, ingrese nuevamente!!'});
@@ -16,11 +16,11 @@ module.exports.validateUser = (req, res) => {
 }
 
 module.exports.validateCompany = (req, res) => {
-    Company.findOne({usuario:req.body.usuario})
-        .then((user) => {
+    Company.findOne({company:req.body.company})
+        .then((company) => {
             console.log(req.body);
-            if(req.body.password === user.password){
-                res.json({msg: 'Empresa validada correctamente!!'});
+            if(req.body.password === company.password){
+                res.json({logedCompany: company});
             }
             else {
                 res.json({msg: 'Contraseña incorrecta, ingrese nuevamente!!'});
