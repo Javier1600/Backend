@@ -1,10 +1,10 @@
 const Company = require('../models/company.model');
 
 module.exports.createCompany = (request, response) =>{
-    const {nombreEmpresa, correo, direccion, telefono, descripcion, rol, usuario, password, confirmPassword} = request.body;
+    const {nombreEmpresa, correo, direccion, telefono, descripcion, valores, rol, usuario, password, confirmPassword} = request.body;
     console.log(request.body)
     Company.create({
-        nombreEmpresa, correo, direccion, telefono, descripcion, rol, usuario, password, confirmPassword
+        nombreEmpresa, correo, direccion, telefono, descripcion, valores, rol, usuario, password, confirmPassword
     })
         .then(Company => response.json({insertedCompany: Company, msg: 'Succesful creation'}))
         .catch(err => response.status(400).json(err));
