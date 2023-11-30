@@ -1,6 +1,10 @@
 const mongoose = require('mongoose');
 
-const JobSchema = new mongoose.Schema({   
+const JobSchema = new mongoose.Schema({ 
+    puesto: {
+        type: String,
+        required: [true, 'El puesto es obligatoria']
+    },  
     idEmpresa: {
         type: String,
         required: [true, 'El id de la Empresa es obligatorio']
@@ -9,6 +13,14 @@ const JobSchema = new mongoose.Schema({
         type: String,
         required: [true, 'La descripcion es obligatoria']
     },
+    formacionAcademica: {
+        type: String,
+        required: [true, 'La formación Academica es obligatoria']
+    },
+    experiencia: {
+        type: String,
+        required: [true, 'La experiencia es obligatoria']
+    }, 
     conocimientos: {
         type: String,
         required: [true, 'Los conocimientos requeridos son obligatorios']
@@ -17,6 +29,10 @@ const JobSchema = new mongoose.Schema({
         type: String,
         required: [true, 'Las aptitudes requeridos son obligatorias']
     },
+    modalidad: {
+        type: String,
+        required: [true, 'La modalidad es obligatoria']
+    }, 
     numeroVacantes: {
         type: String,
         required: [true, 'El numero de vacantes es obligatorio']
