@@ -8,6 +8,10 @@ const SchoolSchema = new mongoose.Schema({
     ubicacion: {
         type: String,
         required: [true, 'La ubicacion de la Institucion es obligatoria']
+    },
+    estado: {
+        type: String,
+        required: [true, 'Es estado de la Institucion es obligatorio']
     }
 });
 

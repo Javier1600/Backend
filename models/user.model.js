@@ -24,6 +24,12 @@ const UserSchema = new mongoose.Schema({
     telefono:{
         type: String,
     },
+    descripcionPersonal:{
+        type: String,
+    },
+    estado:{
+        type: String,
+    },
     usuario:{
         type: String,
         required: [true, 'El usuario es obligatorio'],

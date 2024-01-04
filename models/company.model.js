@@ -32,6 +32,9 @@ const CompanySchema = new mongoose.Schema({
         type: String,
         required: [true, 'El rol es obligatorio'],
     },
+    estado:{
+        type: String,
+    },
     usuario:{
         type: String,
         required: [true, 'El usuario es obligatorio'],
