@@ -1,10 +1,10 @@
 const Job = require('../models/job.model');
 
 module.exports.createJob = (request, response) =>{
-    const {puesto, idEmpresa, descripcion,formacionAcademica, experiencia, conocimientos, aptitudes, modalidad, numeroVacantes} = request.body;
+    const {puesto, idEmpresa, descripcion,formacionAcademica, experiencia, conocimientos, aptitudes, modalidad, numeroVacantes, estado} = request.body;
     console.log(request.body)
     Job.create({
-        puesto, idEmpresa, descripcion, formacionAcademica, experiencia, conocimientos,aptitudes, modalidad, numeroVacantes
+        puesto, idEmpresa, descripcion, formacionAcademica, experiencia, conocimientos,aptitudes, modalidad, numeroVacantes, estado
     })
         .then(Job => response.json({insertedJob: Job, msg: 'Succesful creation'}))
         .catch(err => response.status(400).json(err));

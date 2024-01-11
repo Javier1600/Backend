@@ -37,6 +37,9 @@ const JobSchema = new mongoose.Schema({
         type: String,
         required: [true, 'El numero de vacantes es obligatorio']
     },
+    estado:{
+        type: String, 
+    }
 });
 
 const Job = mongoose.model('Job', JobSchema);

@@ -11,12 +11,16 @@ const PostulationSchema = new mongoose.Schema({
     },
     estado:{
         type: String,
-        required: [true, 'El El idUsuario es obligatorio'],
+        required: [true, 'El estado es obligatorio'],
     },
     fechaPostulacion:{
         type: Date,
         required: [true, 'La fecha de postulación es obligatoria'],
-    }
+    },
+    estadoPostulacion:{
+        type: String,
+        required: [true, 'El estado de la postulacion es obligatorio'],
+    },
 });
 
 const Postulation = mongoose.model('Postulation', PostulationSchema);

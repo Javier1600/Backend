@@ -1,10 +1,10 @@
 const Postulation = require('../models/postulation.model');
 
 module.exports.createPostulation = (request, response) =>{
-    const {idUsuario, idEmpleo, estado,fechaPostulacion} = request.body;
+    const {idUsuario, idEmpleo, estado, estadoPostulacion, fechaPostulacion} = request.body;
     console.log(request.body)
     Postulation.create({
-        idUsuario, idEmpleo, estado,fechaPostulacion
+        idUsuario, idEmpleo, estado,estadoPostulacion, fechaPostulacion
     })
         .then(Postulation => response.json({insertedPostulation: Postulation, msg: 'Succesful creation'}))
         .catch(err => response.status(400).json(err));
