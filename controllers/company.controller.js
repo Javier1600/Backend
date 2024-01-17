@@ -1,4 +1,5 @@
 const Company = require('../models/company.model');
+const CompanyPhoto = require('../models/companyPhoto.model');
 
 module.exports.createCompany = (request, response) =>{
     const {nombreEmpresa, correo, direccion, telefono, descripcion, valores, rol, estado, usuario, password, confirmPassword} = request.body;
@@ -82,7 +83,7 @@ module.exports.getCompanyPhoto = (request, response) => {
             if (!empresa) {
                 return response.status(404).json({ error: 'Empresa no encontrada.' });
             }
-            const imageUrl = empresa.foto ? `http://localhost:8000/Imagenes/${empresa.foto}` : null;
+            const imageUrl = empresa.foto ? `https://0vmlb023-8000.use2.devtunnels.ms/Imagenes/${empresa.foto}` : null;
             response.json({ foto: imageUrl });
         })
         .catch(error => {

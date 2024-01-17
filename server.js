@@ -1,16 +1,18 @@
 const express = require('express');
 const path = require('path');
-const cors = require('cors');  
+const cors = require('cors'); 
+
 const app = express();
+
 const port = 8000;
 
-require('./config/mongoose.config.js');
 
-app.use('/Imagenes', express.static(path.join(__dirname, 'Imagenes')));
+require('./config/mongoose.config.js');
 
 app.use(cors());
 
 app.use(express.json());
+
 app.use(express.urlencoded( { extended: true } ));
 
 const allRolRoutes = require('./routes/rol.routes');
@@ -42,5 +44,7 @@ allPostulationRoutes(app);
 
 const allLogInRoutes = require('./routes/login.routes');
 allLogInRoutes(app);
+
+app.use('/Imagenes', express.static(path.join(__dirname, 'Imagenes')));
 
 app.listen(port, () => console.log("Server is listening at port ", port));

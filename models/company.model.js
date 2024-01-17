@@ -1,4 +1,5 @@
 const mongoose = require('mongoose');
+const md5 = require('md5');
 
 const CompanySchema = new mongoose.Schema({   
     nombreEmpresa:{
@@ -58,6 +59,11 @@ CompanySchema.pre('validate', function(next) {
     }
     next();
     });
+    
+CompanySchema.pre('save', function(next) {
+    this.password = md5(this.password);
+    next();
+});
 
 const Company = mongoose.model('Company', CompanySchema);
 module.exports = Company;

@@ -40,36 +40,29 @@ module.exports.addPhoto = (request, response) => {
     if (!request.file) {
         return response.status(400).json({ error: 'No se ha enviado ningún archivo.' });
     }
-
-    const filePath = 'Imagenes/' + request.file.filename; // La ruta donde se guardó el archivo
+    const filePath = 'Imagenes/' + request.file.filename;
     const nuevaFoto = {
         foto: request.file.filename,
         ruta: filePath,
         idUsuario : request.params.id
     };
-
-    console.log(nuevaFoto)
-
+    
     UserPhoto.findOne({idUsuario: request.params.id})
         .then(fotoUsuario => {
             if (!fotoUsuario) {
                 return User.findById(request.params.id);
             }
-            // Si ya existe, actualiza la información de la foto
             fotoUsuario.foto = nuevaFoto.foto;
             fotoUsuario.ruta = nuevaFoto.ruta;
             return fotoUsuario.save();
         })
         .then(userOrFoto => {
-            // userOrFoto puede ser un usuario o un UserPhoto actualizado
             if (!userOrFoto) {
                 return Promise.reject({ status: 404, message: 'Usuario no encontrado' });
             }
-            // Si userOrFoto es un usuario, creamos un nuevo UserPhoto
             if (userOrFoto instanceof User) {
                 return UserPhoto.create(nuevaFoto);
             }
-            // Si userOrFoto es un UserPhoto actualizado, no hacemos nada más
             return userOrFoto;
         })
         .then(() => {
@@ -91,8 +84,7 @@ module.exports.getUserPhoto = (request, response) => {
             if (!user) {
                 return response.status(404).json({ error: 'Usuario no encontrado.' });
             }
-            // Asegúrate de que la ruta de la imagen sea accesible para el cliente
-            const imageUrl = user.foto ? `http://localhost:8000/Imagenes/${user.foto}` : null;
+            const imageUrl = user.foto ? `https://0vmlb023-8000.use2.devtunnels.ms/Imagenes/${user.foto}` : null;
             response.json({ foto: imageUrl });
         })
         .catch(error => {

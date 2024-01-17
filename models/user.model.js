@@ -1,4 +1,5 @@
 const mongoose = require('mongoose');
+const md5 = require('md5');
 
 const UserSchema = new mongoose.Schema({   
     nombre:{
@@ -23,12 +24,15 @@ const UserSchema = new mongoose.Schema({
     },
     telefono:{
         type: String,
+        required: [true, 'El teléfono es obligatorio'],
     },
     descripcionPersonal:{
         type: String,
+        required: [true, 'La descripción personal es obligatoria'],
     },
     estado:{
         type: String,
+        required: [true, 'El estado es obligatorio'],
     },
     usuario:{
         type: String,
@@ -47,10 +51,15 @@ UserSchema.virtual('confirmPassword')
 UserSchema.pre('new', function(next) {
     console.log(this.password ,this.confirmPassword)
     if (this.password != this.confirmPassword) {
-    this.invalidate('confirmPassword', 'Password must match!');
+    this.invalidate('confirmPassword', 'Las contraseñas deben coincidir!');
     }
     next();
     });
+
+UserSchema.pre('save', function(next) {
+    this.password = md5(this.password);
+    next();
+});
 
 const User = mongoose.model('User', UserSchema);
 module.exports = User;
