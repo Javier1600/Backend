@@ -13,6 +13,9 @@ const PostulationSchema = new mongoose.Schema({
         type: String,
         required: [true, 'El estado es obligatorio'],
     },
+    motivoRechazo:{
+        type: String,
+    },
     fechaPostulacion:{
         type: Date,
         required: [true, 'La fecha de postulación es obligatoria'],
