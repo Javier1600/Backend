@@ -45,6 +45,9 @@ allPostulationRoutes(app);
 const allLogInRoutes = require('./routes/login.routes');
 allLogInRoutes(app);
 
+const allExternalCompanyRoutes = require('./routes/externalCompany.routes');
+allExternalCompanyRoutes(app);
+
 app.use('/Imagenes', express.static(path.join(__dirname, 'Imagenes')));
 
 app.listen(port, () => console.log("Server is listening at port ", port));
